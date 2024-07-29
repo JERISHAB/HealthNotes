@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+    {% if profile %}
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Profile Picture</th>
+                <th>Address</th>
+                <th>User Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ profile.user.username }}</td>
+                <td>{{ profile.user.first_name }}</td>
+                <td>{{ profile.user.last_name }}</td>
+                <td>{{ profile.user.email }}</td>
+                <td><img src="{{ profile.profile_picture.url }}" alt="Profile Picture" width="50" height="50"></td>
+                <td>{{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</td>
+                <td>{{ profile.get_user_type_display }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+        <p>No profile information available.</p>
+    {% endif %}
+
+{% endblock content %}
