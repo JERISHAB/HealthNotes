@@ -1,14 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME page</title>
+    <title>{% block title %}Hospital Dashboard{% endblock %}</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Brand Name -->
+                <div class="navbar-brand">
+                    <a href="{% url 'user:home' %}" class="navbar-logo">Hospital Name</a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="navbar-links">
+                    <a href="{% url 'user:home' %}" class="navbar-link">Home</a>
+                    <a href="{% url 'user:home' %}" class="navbar-link">About</a>
+                    <a href="{% url 'user:home' %}" class="navbar-link">Contact</a>
+                </div>
+
+                <!-- Conditional Buttons -->
+                <div class="navbar-buttons">
+                    {% if user.is_authenticated %}
+                        {% if request.path == '/dashboard/' %}
+                            <!-- Show Home and Logout buttons on the dashboard -->
+                            <a href="{% url 'user:home' %}" class="navbar-button">Home</a>
+                            <a href="{% url 'user:logout' %}" class="navbar-button">Logout</a>
+                        {% else %}
+                            <!-- Show Dashboard and Logout buttons on other pages -->
+                            <a href="{% url 'user:dashboard' %}" class="navbar-button">Dashboard</a>
+                            <a href="{% url 'user:logout' %}" class="navbar-button">Logout</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'user:login' %}" class="navbar-button">Login</a>
+                        <a href="{% url 'user:signup' %}" class="navbar-button">Signup</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
     {% block content %}
     <h1>This is <b class="">HOME</b></h1>
     {% endblock content %}
-    
 </body>
 </html>

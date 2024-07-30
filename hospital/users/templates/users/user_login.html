@@ -1,13 +1,16 @@
 {% extends "home.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Log in</h1>
-<form class="site-form" action="{% url 'user:login' %}" method="POST" >
-    {% csrf_token %}
-   {{form}}
-   {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{request.GET.next}}">
-   {% endif %}
-   <input type="submit" value="login" >
-</form>
-{% endblock content %}  
+<div class="container mt-5">
+    <h1>Log in</h1>
+    <form class="site-form" action="{% url 'user:login' %}" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+{% endblock content %}

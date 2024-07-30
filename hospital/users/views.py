@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
 from .models import Profile
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 def user_signup(request):
@@ -23,7 +24,7 @@ def user_signup(request):
                 user_type=form.cleaned_data['user_type']
             )
             login(request, user)
-            return redirect('user:home')
+            return redirect('user:login')
         else:
             messages.error(request, "Please correct the errors below.")
             print(form.errors)  # Print form errors to console
@@ -51,17 +52,25 @@ def user_login(request):
     return render(request,'users/user_login.html',{'form':form})
 
 
-@login_required(login_url='user:login')
+@login_required
 def dashboard(request):
-    user = request.user
-    print(f"Logged in user: {user.username}")  # Debugging
-    try:
-        profile = Profile.objects.get(user=user)
-        print(f"Profile found: {profile}")  # Debugging
-    except Profile.DoesNotExist:
-        profile = None
-        print("No profile found for user:", user.username)  # Debugging
-    return render(request, 'users/dashboard.html', {'profile': profile})
+    profile = get_object_or_404(Profile, user=request.user)
+    
+    # Determine the title based on user type
+    if profile.get_user_type_display() == 'Doctor':
+        title = 'Doctor Dashboard'
+    else:
+        title = 'Patient Dashboard'
+    
+    return render(request, 'users/dashboard.html', {
+        'profile': profile,
+        'title': title
+    })
+
+def user_logout(request):
+    """Log out the user and redirect to the home page."""
+    logout(request)
+    return redirect('user:home')
 
 
 def user_home(request):
