@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8b@qtise2wn9+ez0enq_^ed=4k)7fz5&+8#kmq60g3w*3f(03l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost','django-banao-mfv264pia-jerishabs-projects.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,12 +84,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'bNJNSLPyDlPDzkLhleNdOyPoczSBXjkd',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '47147',
-        'OPTIONS': {
-            'sslmode': 'prefer', 
-        }
+        'PASSWORD': 'FQzEdJecTHMFTufdXIeTkJJHJlRQwLHs',
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432',
     }
 }
 
@@ -133,7 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles","static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # Media files
