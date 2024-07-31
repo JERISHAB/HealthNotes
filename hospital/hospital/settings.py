@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8b@qtise2wn9+ez0enq_^ed=4k)7fz5&+8#kmq60g3w*3f(03l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost','django-banao-mfv264pia-jerishabs-projects.vercel.app/']
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost','django-banao-mfv264pia-jerishabs-projects.vercel.app']
 
 
 # Application definition
@@ -46,6 +46,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hospital.wsgi.app'
+WSGI_APPLICATION = 'hospital.wsgi.application'
 
 
 # Database
@@ -91,6 +92,7 @@ DATABASES = {
         }
     }
 }
+
 
 
 # Password validation
