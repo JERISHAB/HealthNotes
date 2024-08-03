@@ -61,7 +61,7 @@ def dashboard(request):
         title = 'Doctor Dashboard'
     else:
         title = 'Patient Dashboard'
-    
+    print(profile.profile_picture.url)
     return render(request, 'users/dashboard.html', {
         'profile': profile,
         'title': title
