@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="blog_post_create">
+    <h1>Create a New Blog Post</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'blog:create_blog_post' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Save Post</button>
+    </form>
+    <a href="{% url 'blog:blog_post_list' %}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock %}

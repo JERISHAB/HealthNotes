@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="blog_post_edit">
+    <h2>{% if post %}Edit Blog Post: {{ post.title }}{% else %}Create New Blog Post{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'blog:edit_blog_post' pk=post.pk %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">
+            {% if post %}Update Post{% else %}Create Post{% endif %}
+        </button>
+    </form>
+    <a href="{% url 'user:dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

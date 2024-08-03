@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="blog_post_details-container">
+    <h1 class="blog_post_details-title">{{ post.title }}</h1>
+    
+    <!-- Blog Post Image -->
+    <div class="blog_post_details-image-container">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog_post_details-image">
+    </div>
+    
+    <!-- Blog Post Summary -->
+    <div class="blog_post_details-summary-container">
+        <h2 class="blog_post_details-summary-heading">Summary</h2>
+        <p class="blog_post_details-summary">{{ post.summary }}</p>
+    </div>
+    
+    <!-- Blog Post Content -->
+    <div class="blog_post_details-content-container">
+        <h2 class="blog_post_details-content-heading">Content</h2>
+        <div class="blog_post_details-content">
+            {{ post.content|safe }}
+        </div>
+    </div>
+    
+    <!-- Back to List -->
+    <a href="{% url 'blog:blog_post_list' %}" class="blog_post_details-back-button"><button class="">Back</button></a>
+</div>
+{% endblock %}

@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
-from .models import Profile
+from .models import Profile 
+from blog.models import BlogPost
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, get_object_or_404
@@ -59,19 +60,33 @@ def dashboard(request):
     # Determine the title based on user type
     if profile.get_user_type_display() == 'Doctor':
         title = 'Doctor Dashboard'
+        
+        # Fetch articles related to the doctor
+        published_posts = BlogPost.objects.filter(author=request.user, is_draft=False).order_by('-created_at')
+        drafts = BlogPost.objects.filter(author=request.user, is_draft=True).order_by('-created_at')
+        
+        context = {
+            'profile': profile,
+            'title': title,
+            'published_posts': published_posts,
+            'drafts': drafts,
+            'is_doctor': True
+        }
     else:
         title = 'Patient Dashboard'
-    print(profile.profile_picture.url)
-    return render(request, 'users/dashboard.html', {
-        'profile': profile,
-        'title': title
-    })
+        
+        # No articles for patients
+        context = {
+            'profile': profile,
+            'title': title,
+            'is_doctor': False
+        }
+    
+    return render(request, 'users/dashboard.html', context)
+
+
 
 def user_logout(request):
     """Log out the user and redirect to the home page."""
     logout(request)
-    return redirect('user:home')
-
-
-def user_home(request):
-    return render(request,'home.html')
+    return redirect('blog:blog_post_list')

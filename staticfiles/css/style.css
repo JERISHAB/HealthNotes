@@ -246,3 +246,592 @@ form .asteriskField {
     color: #6c757d; 
     margin-bottom: 10px;
 }
+
+
+/* Container for the blog post list page */
+.blog-post-list-container {
+    padding: 2em;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.blog-post-list-title {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-list-filter-form {
+    margin-bottom: 2em;
+}
+
+.blog-post-list-filter-label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-list-filter-select {
+    font-size: 1.1em;
+    padding: 10px;
+    width: 165px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-list-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.blog-post-card {
+    background-color: #f3eded;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: coloumn;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-post-card-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog-post-card-content {
+    padding: 1.5em;
+}
+
+.blog-post-card-title {
+    font-size: 1.5em;
+    margin: 0.1em auto;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-card-summary {
+    font-size: 1em;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-post-list-no-posts-message {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    font-size: 1.2em;
+    font-family: 'Arial', sans-serif;
+}
+
+
+
+
+/* Container for the entire blog post details page */
+.blog_post_details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title of the blog post */
+.blog_post_details-title {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Container for the blog post image */
+.blog_post_details-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for the blog post image */
+.blog_post_details-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Container for the blog post summary section */
+.blog_post_details-summary-container {
+    margin-bottom: 20px;
+}
+
+/* Heading for the blog post summary */
+.blog_post_details-summary-heading {
+    font-size: 1.5rem;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Content of the blog post summary */
+.blog_post_details-summary {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for the blog post content section */
+.blog_post_details-content-container {
+    margin-bottom: 20px;
+}
+
+/* Heading for the blog post content */
+.blog_post_details-content-heading {
+    font-size: 1.5rem;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Content of the blog post */
+.blog_post_details-content {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for action buttons (edit, delete) */
+.blog_post_details-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style for the edit button */
+.blog_post_details-edit-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+/* Style for the delete button */
+.blog_post_details-delete-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #dc3545;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+/* Back to list link */
+.blog_post_details-back-link {
+    display: inline-block;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+
+/* Container for the entire dashboard */
+.blog_dash-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of the dashboard section */
+.blog_dash-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Profile card styling */
+.blog_dash-profile-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.blog_dash-profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blog_dash-profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.blog_dash-profile-username {
+    font-size: 1.5rem;
+    color: #222;
+}
+
+/* Profile details styling */
+.blog_dash-profile-details {
+    font-size: 1rem;
+    color: #555;
+}
+
+.blog_dash-detail-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.blog_dash-detail-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.blog_dash-detail-value {
+    color: #333;
+}
+
+/* Styling for articles and drafts tables */
+.blog_dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.blog_dash-table thead {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.blog_dash-table th, .blog_dash-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog_dash-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons inside tables */
+.blog_dash-table .btn {
+    font-size: 0.875rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.blog_dash-table .btn-info {
+    background-color: #17a2b8;
+}
+
+.blog_dash-table .btn-primary {
+    background-color: #007bff;
+}
+
+.blog_dash-table .btn-danger {
+    background-color: #dc3545;
+}
+
+/* Container for the blog post edit page */
+.blog_post_edit {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.blog_post_edit h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form styling */
+.blog_post_edit form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button styling */
+.blog_post_edit .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.blog_post_edit .btn-primary {
+    background-color: #007bff;
+}
+
+.blog_post_edit .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.blog_post_edit .btn-secondary {
+    background-color: #6c757d;
+}
+
+.blog_post_edit .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Styling for the form fields */
+.blog_post_edit .form-group {
+    margin-bottom: 15px;
+}
+
+.blog_post_edit .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.blog_post_edit .form-group input,
+.blog_post_edit .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.blog_post_edit .form-group input[type="file"] {
+    padding: 3px;
+}
+
+.blog_post_edit .form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.blog_post_edit .form-group .crispy-form-errors {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+#id_is_draft{
+    display: flex;
+    justify-content: start;
+}
+
+
+
+/* Styling for the blog post create page container */
+.blog_post_create {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.blog_post_create h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form styling */
+.blog_post_create form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button styling */
+.blog_post_create .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.blog_post_create .btn-primary {
+    background-color: #007bff;
+}
+
+.blog_post_create .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.blog_post_create .btn-secondary {
+    background-color: #6c757d;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.blog_post_create .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Form fields styling */
+.blog_post_create .form-group {
+    margin-bottom: 15px;
+}
+
+.blog_post_create .form-group label {
+    font-weight: bold;
+}
+
+.blog_post_create .form-group input,
+.blog_post_create .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.blog_post_create .form-group input[type="file"] {
+    padding: 3px;
+}
+
+.blog_post_create .form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Form field input styling */
+.blog_post_create .form-group .crispy-form-errors {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+
+
+
+/* Container styling for the delete blog post page */
+.delete-blog-post {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading styling */
+.delete-blog-post h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+.delete-blog-post .site-form {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Button styling */
+.delete-blog-post .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.delete-blog-post .btn-danger {
+    background-color: #dc3545;
+}
+
+.delete-blog-post .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.delete-blog-post .btn-secondary {
+    background-color: #6c757d;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.delete-blog-post .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Form fields styling */
+.delete-blog-post .site-form input[type="submit"] {
+    cursor: pointer;
+}
+
+/* Form field input styling */
+.delete-blog-post .site-form p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.delete-blog-post .site-form input[type="submit"] {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+.blog_dash-create-post-button{
+    background-color: #17b344;
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

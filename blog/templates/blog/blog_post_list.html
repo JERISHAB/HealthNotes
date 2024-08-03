@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="blog-post-list-container">
+    <h1 class="blog-post-list-title">Blog Posts</h1>
+
+    <form method="GET" action="{% url 'blog:blog_post_list' %}" class="blog-post-list-filter-form">
+        <label for="category" class="blog-post-list-filter-label">Filter by category:</label>
+        <select name="category" id="category" class="blog-post-list-filter-select" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+                <option value="{{ category.0 }}" {% if request.GET.category == category.0 %}selected{% endif %}>
+                    {{ category.1 }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <div class="blog-post-list-cards">
+        {% for post in posts %}
+        <div class="blog-post-card">
+            <a href="{% url 'blog:blog_post_detail' pk=post.pk %}" class="blog-post-card-link">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-post-card-image">
+                <div class="blog-post-card-content">
+                    <h2 class="blog-post-card-title">{{ post.title }}</h2>
+                    <p class="blog-post-card-summary">{{ post.summary|slice:":130" }}{% if post.summary|length > 15 %}...{% endif %}</p>
+                </div>
+            </a>
+        </div>
+        {% empty %}
+        <p class="blog-post-list-no-posts-message">No blog posts available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

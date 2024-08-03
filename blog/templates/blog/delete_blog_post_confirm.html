@@ -1,0 +1,13 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="delete-blog-post">
+    <h2>Confirm Deletion of Blog Post: {{ post.title }}</h2>
+    <form class="site-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Confirm Deletion" class="btn btn-danger">
+    </form>
+    <a href="{% url 'user:dashboard' %}" class="btn btn-secondary">Cancel</a>
+</div>
+{% endblock %}

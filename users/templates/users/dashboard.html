@@ -1,36 +1,102 @@
 {% extends "home.html" %}
 
 {% block content %}
-<div class="dashboard-container">
-    <h2>{{ title }}</h2>
+<div class="blog_dash-container">
+    <h2 class="blog_dash-title">{{ title }}</h2>
     
     {% if profile %}
-    <div class="profile-card">
-        <div class="profile-header">
-            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-            <h3>{{ profile.user.username }}</h3>
+    <div class="blog_dash-profile-card">
+        <div class="blog_dash-profile-header">
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="blog_dash-profile-picture">
+            <h3 class="blog_dash-profile-username">{{ profile.user.username }}</h3>
         </div>
-        <div class="profile-details">
-            <div class="detail-row">
-                <span class="detail-label">First Name:</span>
-                <span class="detail-value">{{ profile.user.first_name }}</span>
+        <div class="blog_dash-profile-details">
+            <div class="blog_dash-detail-row">
+                <span class="blog_dash-detail-label">First Name:</span>
+                <span class="blog_dash-detail-value">{{ profile.user.first_name }}</span>
             </div>
-            <div class="detail-row">
-                <span class="detail-label">Last Name:</span>
-                <span class="detail-value">{{ profile.user.last_name }}</span>
+            <div class="blog_dash-detail-row">
+                <span class="blog_dash-detail-label">Last Name:</span>
+                <span class="blog_dash-detail-value">{{ profile.user.last_name }}</span>
             </div>
-            <div class="detail-row">
-                <span class="detail-label">Email:</span>
-                <span class="detail-value">{{ profile.user.email }}</span>
+            <div class="blog_dash-detail-row">
+                <span class="blog_dash-detail-label">Email:</span>
+                <span class="blog_dash-detail-value">{{ profile.user.email }}</span>
             </div>
-            <div class="detail-row">
-                <span class="detail-label">Address:</span>
-                <span class="detail-value">{{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</span>
+            <div class="blog_dash-detail-row">
+                <span class="blog_dash-detail-label">Address:</span>
+                <span class="blog_dash-detail-value">{{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</span>
             </div>
         </div>
     </div>
+
+    {% if is_doctor %}
+        <!-- Published Articles Table -->
+        <div class="blog_dash-articles-table">
+            <h3>Published Articles</h3>
+            <table class="blog_dash-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in published_posts %}
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.created_at }}</td>
+                        <td>
+                            <a href="{% url 'blog:blog_post_detail' pk=post.pk %}" class="btn btn-info">View</a>
+                            <a href="{% url 'blog:edit_blog_post' pk=post.pk %}" class="btn btn-primary">Edit</a>
+                            <form action="{% url 'blog:delete_blog_post_confirm' pk=post.pk %}" method="GET" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No articles available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Drafts Table -->
+        <div class="blog_dash-drafts-table">
+            <h3>Drafts</h3>
+            <table class="blog_dash-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for draft in drafts %}
+                    <tr>
+                        <td>{{ draft.title }}</td>
+                        <td>{{ draft.created_at }}</td>
+                        <td>
+                            <a href="{% url 'blog:edit_blog_post' pk=draft.pk %}" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No drafts available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'blog:create_blog_post' %}" class="blog_dash-create-post-button">Create New Post</a>
+        </div>
+    {% endif %}
     {% else %}
-    <p>No profile information available.</p>
+    <p>Profile not found.</p>
     {% endif %}
 </div>
-{% endblock content %}
+{% endblock %}
