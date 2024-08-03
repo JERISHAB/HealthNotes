@@ -97,7 +97,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-POSGRE_LOCALLY = False
+POSGRE_LOCALLY = True
 if ENVIRONMENT == 'production'or POSGRE_LOCALLY == True:
     DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
 
