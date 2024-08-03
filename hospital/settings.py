@@ -141,19 +141,18 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Media files
+MEDIA_URL = '/media/'
 
-
-if ENVIRONMENT == 'production' or POSGRE_LOCALLY == True :
+if ENVIRONMENT == 'development' or POSGRE_LOCALLY == True :
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUD_API_KEY'),
-    'API_SECRET': os.getenv('CLOUD_API_SECRET'),
-}
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-    MEDIA_URL = '/media/'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('CLOUD_API_KEY'),
+    'API_SECRET': env('CLOUD_API_SECRET'),
+}
 
 
 # Default primary key field type
