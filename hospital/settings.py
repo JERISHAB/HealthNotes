@@ -98,7 +98,7 @@ DATABASES = {
     }
 }
 POSGRE_LOCALLY = False
-if ENVIRONMENT == 'production'or POSGRE_LOCALLY == True:
+if (ENVIRONMENT == 'production') or (POSGRE_LOCALLY == True):
     DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
 
 
@@ -143,7 +143,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # Media files
 MEDIA_URL = '/media/'
 
-if ENVIRONMENT == 'production' or POSGRE_LOCALLY == True :
+if (ENVIRONMENT == 'production') or (POSGRE_LOCALLY == True) :
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
