@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from environ import Env
 import dj_database_url
+import cloudinary_storage
 
 env = Env()
 Env.read_env()
@@ -47,9 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
     'cloudinary_storage',
     'cloudinary',
+    'users',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -149,9 +151,9 @@ else:
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('CLOUD_API_KEY'),
-    'API_SECRET': env('CLOUD_API_SECRET'),
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUD_API_KEY'),
+    'API_SECRET': os.getenv('CLOUD_API_SECRET'),
 }
 
 
